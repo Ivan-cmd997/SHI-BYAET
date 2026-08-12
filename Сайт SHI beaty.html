@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHI Beauty — Премиальный салон красоты</title>
+    <meta
+      name="description"
+      content="Премиальный салон красоты SHI Beauty — индивидуальный сервис, экспертные мастера и безупречный стиль."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#050505',
+              moss: '#8fbf5c',
+              mist: '#f5f2ea'
+            },
+            fontFamily: {
+              display: ['Cormorant Garamond', 'serif'],
+              sans: ['Inter', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      .dots-leader li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .dots-leader li::before {
+        content: "";
+        flex-grow: 1;
+        order: 2;
+        margin: 0 10px 5px 10px;
+        border-bottom: 1px dotted rgba(245, 242, 234, 0.3);
+      }
+      .dots-leader li span { order: 1; }
+      .dots-leader li strong { order: 3; }
+      
+      details summary::-webkit-details-marker { display: none; }
+      details summary { list-style: none; }
+    </style>
+  </head>
+  <body class="min-h-screen bg-ink text-mist font-sans antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#top" class="text-xl font-semibold tracking-[0.35em] text-white">
+          SHI Beauty
+        </a>
+        <nav class="hidden items-center gap-6 text-sm uppercase tracking-[0.25em] text-white/70 md:flex">
+          <a href="#about" class="transition hover:text-moss">О салоне</a>
+          <a href="#services" class="transition hover:text-moss">Услуги</a>
+          <a href="#promo" class="transition hover:text-moss">Акции</a>
+          <a href="#bar" class="transition hover:text-moss">Барная карта</a>
+          <a href="#team" class="transition hover:text-moss">Команда</a>
+          <a href="#contacts" class="transition hover:text-moss">Контакты</a>
+        </nav>
+        <a
+          href="#contacts"
+          class="rounded-full border border-moss/60 px-4 py-2 text-sm font-medium text-moss transition-all duration-300 hover:scale-105 hover:bg-moss hover:text-ink"
+        >
+          Онлайн-запись
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO SECTION -->
+      <section class="relative isolate overflow-hidden">
+        <div class="absolute inset-0">
+          <img
+            src="img/1.jpg"
+            alt="Премиальный интерьер салона в тёплых золотистых тонах"
+            class="h-[78vh] min-h-[620px] w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/30"></div>
+        </div>
+
+        <div class="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-4 py-20 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <p class="mb-4 text-sm uppercase tracking-[0.45em] text-moss">Премиальный сервис</p>
+            <h1 class="font-display text-4xl leading-none text-white sm:text-5xl lg:text-7xl">
+              Изысканная красота<br />в каждом штрихе.
+            </h1>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">
+              SHI Beauty — пространство для тех, кто выбирает тонкость, комфорт и безупречный результат.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#contacts"
+                class="inline-flex items-center justify-center rounded-full bg-moss px-6 py-3 text-sm font-semibold text-ink transition-all duration-300 hover:scale-105"
+              >
+                Записаться на визит
+              </a>
+              <a
+                href="#services"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:border-moss hover:text-moss"
+              >
+                Посмотреть услуги
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div>
+            <p class="mb-4 text-sm uppercase tracking-[0.4em] text-moss">О салоне</p>
+            <h2 class="font-display text-3xl text-white sm:text-4xl">
+              Пространство, где роскошь ощущается с первых минут.
+            </h2>
+            <p class="mt-6 text-base leading-8 text-white/75">
+              Мы создаём атмосферу спокойствия, точности и утончённого сервиса: от консультации до финального штриха. В SHI Beauty каждая процедура — это внимательный подход, экспертная техника и особая атмосфера, где ценят ваше время и индивидуальность.
+            </p>
+            <p class="mt-4 text-base leading-8 text-white/75">
+              Здесь вы найдёте персональный уход, премиальные материалы и мастеров, которые работают с художественной точностью и деликатностью.
+            </p>
+          </div>
+          <div class="overflow-hidden rounded-[2rem] border border-white/10">
+            <img
+              src="img/2.jpg"
+              alt="Интерьер премиального салона"
+              class="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES SECTION -->
+      <section id="services" class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10">
+          <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-sm uppercase tracking-[0.4em] text-moss">Услуги и цены</p>
+              <h2 class="font-display text-3xl text-white sm:text-4xl">Премиальный уход без компромиссов.</h2>
+            </div>
+            <p class="max-w-xl text-sm leading-7 text-white/70">
+              Нажмите на интересующую категорию, чтобы открыть полный список услуг и цен.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Лазерная эпиляция -->
+            <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
+                <h3 class="text-xl font-semibold text-white flex items-center gap-2">Лазерная эпиляция</h3>
+                <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <div class="p-6 border-t border-white/10 overflow-x-auto">
+                <table class="w-full text-left min-w-[500px]">
+                  <thead>
+                    <tr class="border-b border-white/20 text-white/60 text-sm">
+                      <th class="pb-3 font-medium">Название услуги</th>
+                      <th class="pb-3 font-medium text-right w-32">Цена</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-sm divide-y divide-white/5 text-white/80">
+                    <tr><td class="py-3">Лазер Подмышечные впадины и голени и стопы</td><td class="py-3 text-right font-semibold text-moss">3 200 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Подмышечные впадины и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">4 800 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Подмышечные впадины и глубокое бикини</td><td class="py-3 text-right font-semibold text-moss">3 700 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Глубокое бикини и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">6 600 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Руки полностью и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">6 400 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Подмышечные впадины и классическое бикини, ноги полностью</td><td class="py-3 text-right font-semibold text-moss">6 600 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Подмышечные впадины, глубокое бикини и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">7 500 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Лицо полностью, подмышечные впадины, глубокое бикини и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">9 000 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Лицо полностью, подмышечные впадины, руки полностью и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">9 000 ₽</td></tr>
+                    <tr><td class="py-3">Лазер Лицо полностью, руки полностью, подмышечные впадины, белая линия живота, ягодицы, глубокое бикини и ноги полностью</td><td class="py-3 text-right font-semibold text-moss">13 100 ₽</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+
+            <!-- Массаж -->
+            <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
+                <h3 class="text-xl font-semibold text-white flex items-center gap-2">Массаж</h3>
+                <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <div class="p-6 border-t border-white/10 overflow-x-auto">
+                <table class="w-full text-left min-w-[500px]">
+                  <thead>
+                    <tr class="border-b border-white/20 text-white/60 text-sm">
+                      <th class="pb-3 font-medium">Название услуги</th>
+                      <th class="pb-3 font-medium text-right w-32">Цена</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-sm divide-y divide-white/5 text-white/80">
+                    <tr><td class="py-3">Массаж общий</td><td class="py-3 text-right font-semibold text-moss">3 400 ₽</td></tr>
+                    <tr><td class="py-3">Массаж лица</td><td class="py-3 text-right font-semibold text-moss">2 400 ₽</td></tr>
+                    <tr><td class="py-3">Массаж головы</td><td class="py-3 text-right font-semibold text-moss">1 000 ₽</td></tr>
+                    <tr><td class="py-3">Массаж шейно-воротниковой зоны</td><td class="py-3 text-right font-semibold text-moss">1 600 ₽</td></tr>
+                    <tr><td class="py-3">Массаж спины и шейно-воротниковой зоны</td><td class="py-3 text-right font-semibold text-moss">2 700 ₽</td></tr>
+                    <tr><td class="py-3">Массаж рук</td><td class="py-3 text-right font-semibold text-moss">1 200 ₽</td></tr>
+                    <tr><td class="py-3">Массаж ног и стоп</td><td class="py-3 text-right font-semibold text-moss">1 700 ₽</td></tr>
+                    <tr><td class="py-3">Массаж лимфодренажный</td><td class="py-3 text-right font-semibold text-moss">2 600 ₽</td></tr>
+                    <tr><td class="py-3">Массаж антицеллюлитный общий</td><td class="py-3 text-right font-semibold text-moss">4 200 ₽</td></tr>
+                    <tr><td class="py-3">Массаж ног антицеллюлитный</td><td class="py-3 text-right font-semibold text-moss">2 200 ₽</td></tr>
+                    <tr><td class="py-3">Массаж спины антицеллюлитный</td><td class="py-3 text-right font-semibold text-moss">1 800 ₽</td></tr>
+                    <tr><td class="py-3">Массаж живота антицеллюлитный</td><td class="py-3 text-right font-semibold text-moss">1 600 ₽</td></tr>
+                    <tr><td class="py-3">Спортивный массаж</td><td class="py-3 text-right font-semibold text-moss">4 600 ₽</td></tr>
+                    <tr><td class="py-3">Медовый массаж (одна проблемная зона)</td><td class="py-3 text-right font-semibold text-moss">900 ₽</td></tr>
+                    <tr><td class="py-3">Стоунтерапия</td><td class="py-3 text-right font-semibold text-moss">4 100 ₽</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+
+            <!-- Косметология & Аппаратный массаж -->
+            <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
+                <h3 class="text-xl font-semibold text-white flex items-center gap-2">Косметология & Аппаратный массаж</h3>
+                <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <div class="p-6 border-t border-white/10 space-y-6">
+                <div>
+                  <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Эстетическая косметология</h4>
+                  <ul class="space-y-2 text-sm dots-leader">
+                    <li><span>Механическая чистка лица и уход по типу кожи</span><strong>5 300 ₽</strong></li>
+                    <li><span>Механическая чистка лица и альгинатная маска</span><strong>6 100 ₽</strong></li>
+                    <li><span>Уход альгинатная маска</span><strong>3 600 ₽</strong></li>
+                    <li><span>Лазерное Омоложение лица</span><strong>2 500 ₽</strong></li>
+                    <li><span>Лазерное Омоложение рук</span><strong>2 000 ₽</strong></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Massage Эндосперма sculpting & Terapy pulse</h4>
+                  <ul class="space-y-2 text-sm dots-leader">
+                    <li><span>Консультация со специалистом</span><strong>0 ₽</strong></li>
+                    <li><span>Эндосперма sculpting by Beautylizer</span><strong>5 700 ₽</strong></li>
+                    <li><span>Эндосперма sculpting by Beautylizer ПА</span><strong>5 000 ₽</strong></li>
+                    <li><span>Terapy pulse-лицо (вакуумный массаж)</span><strong>2 300 ₽</strong></li>
+                    <li><span>Terapy pulse-лицо ПА</span><strong>1 800 ₽</strong></li>
+                    <li><span>Terapy pulse-комплекс все тело</span><strong>2 800 ₽</strong></li>
+                    <li><span>Terapy pulse-комплекс все тело ПА</span><strong>2 000 ₽</strong></li>
+                    <li><span>Terapy pulse-одна проблемная зона</span><strong>2 000 ₽</strong></li>
+                    <li><span>Terapy pulse-одна проблемная зона ПА</span><strong>1 500 ₽</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <!-- Ногтевой сервис -->
+            <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
+                <h3 class="text-xl font-semibold text-white flex items-center gap-2">Ногтевой сервис (Маникюр & Педикюр)</h3>
+                <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <div class="p-6 border-t border-white/10 space-y-6">
+                <div class="rounded-xl border border-moss/30 bg-moss/5 p-4 text-sm leading-6 text-white/80">
+                  Точные цены на маникюр и педикюр зависят от выбранного мастера и его квалификации — уточняйте стоимость при записи.
+                </div>
+                <ul class="grid gap-x-8 gap-y-2.5 text-sm text-white/80 sm:grid-cols-2">
+                  <li>Маникюр Mini</li>
+                  <li>Маникюр Extra</li>
+                  <li>Маникюр Super</li>
+                  <li>Маникюр Men</li>
+                  <li>Маникюр Top Men</li>
+                  <li>Маникюр Little</li>
+                  <li>Педикюр Super Mini</li>
+                  <li>Педикюр Mini</li>
+                  <li>Педикюр Extra</li>
+                  <li>Педикюр Super</li>
+                  <li>Педикюр Extra Men</li>
+                  <li>Педикюр Super Men</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Депиляция -->
+            <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
+                <h3 class="text-xl font-semibold text-white flex items-center gap-2">Депиляция (Воск / Шугаринг)</h3>
+                <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
+              </summary>
+              <div class="p-6 border-t border-white/10 overflow-x-auto space-y-6">
+                <table class="w-full text-left min-w-[600px]">
+                  <thead>
+                    <tr class="border-b border-white/20 text-white/60 text-sm">
+                      <th class="pb-3 font-medium">Зона депиляции</th>
+                      <th class="pb-3 font-medium w-28 text-center">Воск</th>
+                      <th class="pb-3 font-medium w-28 text-center">Шугаринг</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-sm divide-y divide-white/5 text-white/80">
+                    <tr><td class="py-2.5">Лицо полностью</td><td class="py-2.5 text-center text-moss font-medium">1 200 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 400 ₽</td></tr>
+                    <tr><td class="py-2.5">Лицо одна зона</td><td class="py-2.5 text-center text-moss font-medium">500 ₽</td><td class="py-2.5 text-center text-moss font-medium">700 ₽</td></tr>
+                    <tr><td class="py-2.5">Шея</td><td class="py-2.5 text-center text-moss font-medium">600 ₽</td><td class="py-2.5 text-center text-moss font-medium">800 ₽</td></tr>
+                    <tr><td class="py-2.5">Руки полностью</td><td class="py-2.5 text-center text-moss font-medium">1 500 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 700 ₽</td></tr>
+                    <tr><td class="py-2.5">Кисти рук и предплечья</td><td class="py-2.5 text-center text-moss font-medium">900 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 100 ₽</td></tr>
+                    <tr><td class="py-2.5">Фаланги пальцев ног / рук</td><td class="py-2.5 text-center text-moss font-medium">400 ₽</td><td class="py-2.5 text-center text-moss font-medium">600 ₽</td></tr>
+                    <tr><td class="py-2.5">Подмышечная впадина</td><td class="py-2.5 text-center text-moss font-medium">800 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 000 ₽</td></tr>
+                    <tr><td class="py-2.5">Ареолы</td><td class="py-2.5 text-center text-moss font-medium">400 ₽</td><td class="py-2.5 text-center text-moss font-medium">600 ₽</td></tr>
+                    <tr><td class="py-2.5">Живот</td><td class="py-2.5 text-center text-moss font-medium">1 200 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 400 ₽</td></tr>
+                    <tr><td class="py-2.5">Белая линия живота</td><td class="py-2.5 text-center text-moss font-medium">400 ₽</td><td class="py-2.5 text-center text-moss font-medium">600 ₽</td></tr>
+                    <tr><td class="py-2.5">Спина полностью</td><td class="py-2.5 text-center text-moss font-medium">2 100 ₽</td><td class="py-2.5 text-center text-moss font-medium">2 300 ₽</td></tr>
+                    <tr><td class="py-2.5">Поясница</td><td class="py-2.5 text-center text-white/40">—</td><td class="py-2.5 text-center text-moss font-medium">1 200 ₽</td></tr>
+                    <tr><td class="py-2.5">Ягодицы</td><td class="py-2.5 text-center text-moss font-medium">1 300 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 500 ₽</td></tr>
+                    <tr><td class="py-2.5">Межъягодичная впадина</td><td class="py-2.5 text-center text-moss font-medium">500 ₽</td><td class="py-2.5 text-center text-moss font-medium">700 ₽</td></tr>
+                    <tr><td class="py-2.5">Классическое бикини</td><td class="py-2.5 text-center text-moss font-medium">1 800 ₽</td><td class="py-2.5 text-center text-moss font-medium">2 000 ₽</td></tr>
+                    <tr><td class="py-2.5">Глубокое бикини</td><td class="py-2.5 text-center text-moss font-medium">2 400 ₽</td><td class="py-2.5 text-center text-moss font-medium">2 600 ₽</td></tr>
+                    <tr><td class="py-2.5">Ноги полностью</td><td class="py-2.5 text-center text-moss font-medium">2 200 ₽</td><td class="py-2.5 text-center text-moss font-medium">2 400 ₽</td></tr>
+                    <tr><td class="py-2.5">Стопы и голени</td><td class="py-2.5 text-center text-moss font-medium">1 100 ₽</td><td class="py-2.5 text-center text-moss font-medium">1 300 ₽</td></tr>
+                  </tbody>
+                </table>
+
+                <div class="grid gap-6 md:grid-cols-2 pt-4 border-t border-white/5">
+                  <div>
+                    <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Комплексы (Воск)</h4>
+                    <ul class="space-y-2 text-xs dots-leader">
+                      <li><span>Подмышечные впадины, голени и стопы</span><strong>1 500 ₽</strong></li>
+                      <li><span>Подмышечные впадины и ноги полностью</span><strong>2 500 ₽</strong></li>
+                      <li><span>Глубокое бикини и ноги полностью</span><strong>3 900 ₽</strong></li>
+                      <li><span>Подмышечные впадины и глубокое бикини</span><strong>2 700 ₽</strong></li>
+                      <li><span>Подмышки, классик бикини, ноги полностью</span><strong>4 000 ₽</strong></li>
+                      <li><span>Подмышки, глубокое бикини, ноги полностью</span><strong>4 500 ₽</strong></li>
+                      <li><span>Подмышки, бикини, ноги и лицо полностью</span><strong>5 300 ₽</strong></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Комплексы (Шугаринг)</h4>
+                    <ul class="space-y-2 text-xs dots-leader">
+                      <li><span>Подмышечные впадины, голени и стопы</span><strong>1 700 ₽</strong></li>
+                      <li><span>Подмышечные впадины и ноги полностью</span><strong>2 700 ₽</strong></li>
+                      <li><span>Глубокое бикини и ноги полностью</span><strong>4 100 ₽</strong></li>
+                      <li><span>Подмышечные впадины и глубокое бикини</span><strong>2 900 ₽</strong></li>
+                      <li><span>Подмышки, классик бикини, ноги полностью</span><strong>4 200 ₽</strong></li>
+                      <li><span>Подмышки, глубокое бикини, ноги полностью</span><strong>4 700 ₽</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- АКЦИИ -->
+      <section id="promo" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+        <div class="relative overflow-hidden rounded-[2rem] border border-moss/30 bg-gradient-to-br from-moss/10 via-white/5 to-transparent p-6 sm:p-8 lg:p-10">
+          <div class="pointer-events-none absolute -top-16 -left-16 h-56 w-56 rounded-full bg-moss/10 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-moss/10 blur-3xl"></div>
+
+          <div class="relative mb-10 text-center">
+            <p class="text-sm uppercase tracking-[0.4em] text-moss">Специально для гостей</p>
+            <h2 class="font-display text-3xl text-white sm:text-4xl mt-2">Актуальные акции</h2>
+            <div class="w-12 h-[1px] bg-moss/50 mx-auto mt-4"></div>
+          </div>
+
+          <div class="relative grid gap-6 sm:grid-cols-2">
+            <div class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink/70 p-6 transition-all duration-300 hover:border-moss/50 sm:p-8">
+              <div class="flex items-start gap-4">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-moss/30 bg-moss/15 text-moss">
+                  <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h12v6a4 4 0 01-4 4H8a4 4 0 01-4-4V8z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 9.5h1.5a2.5 2.5 0 010 5H16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v1.5M10 4v1.5M13 4v1.5" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-moss">Для новых гостей</p>
+                  <h3 class="mt-1 font-display text-2xl text-white">Кофе в подарок</h3>
+                  <p class="mt-2 text-sm leading-6 text-white/70">
+                    Дарим чашку ароматного кофе при вашей первой записи в SHI Beauty.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink/70 p-6 transition-all duration-300 hover:border-moss/50 sm:p-8">
+              <div class="flex items-start gap-4">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-moss/30 bg-moss/15 text-moss">
+                  <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h12v5a5 5 0 01-5 5H9a4 4 0 01-4-4V8z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9.5h1.5a2 2 0 010 4H17" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3c1 1 1 2 0 3M12 3c1 1 1 2 0 3" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-moss">Для всех гостей</p>
+                  <h3 class="mt-1 font-display text-2xl text-white">Чай — всегда бесплатно</h3>
+                  <p class="mt-2 text-sm leading-6 text-white/70">
+                    Ароматный чай в баре SHI Beauty бесплатен для каждого гостя, вне зависимости от процедуры.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- БАРНАЯ КАРТА -->
+      <section id="bar" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10">
+          <div class="mb-10 text-center">
+            <p class="text-sm uppercase tracking-[0.4em] text-moss">Эксклюзивно для гостей</p>
+            <h2 class="font-display text-4xl text-white mt-2">Барная карта</h2>
+            <div class="w-12 h-[1px] bg-moss/50 mx-auto mt-4"></div>
+          </div>
+
+          <div class="grid gap-10 md:grid-cols-2 lg:gap-16">
+            <!-- Холодные напитки -->
+            <div class="space-y-6">
+              <h3 class="font-display text-2xl text-white border-b border-white/10 pb-2 flex items-center gap-2">
+                Холодные напитки
+              </h3>
+              <ul class="space-y-3 text-sm dots-leader text-white/90">
+                <li><span>Бамбл</span><strong>280 ₽</strong></li>
+                <li><span>Кофейный милкшейк</span><strong>400 ₽</strong></li>
+                <li><span>Аффогато classic</span><strong>200 ₽</strong></li>
+                <li><span>Аффогато not classic</span><strong>250 ₽</strong></li>
+                <li><span>Милкшейк</span><strong>350 ₽</strong></li>
+                <li><span>Свежевыжатый сок</span><strong>350 ₽</strong></li>
+                <li><span>ICE Tea</span><strong>150 ₽</strong></li>
+                <li><span>ICE латте / американо / матча</span><strong>300 / 250 / 300 ₽</strong></li>
+                <li><span>ICE какао / раф / Нутелла</span><strong>350 ₽</strong></li>
+                <li><span>Bonaqua</span><strong>170 ₽</strong></li>
+                <li><span>Добрый кола</span><strong>120 ₽</strong></li>
+                <li><span>Rich tonic / сок / cola</span><strong>250 / 200 / 200 ₽</strong></li>
+                <li><span>Burn</span><strong>250 ₽</strong></li>
+              </ul>
+            </div>
+
+            <!-- Горячие напитки & Добавки -->
+            <div class="space-y-8">
+              <div class="space-y-6">
+                <h3 class="font-display text-2xl text-white border-b border-white/10 pb-2 flex items-center gap-2">
+                  Горячие напитки
+                </h3>
+                <ul class="space-y-3 text-sm dots-leader text-white/90">
+                  <li><span>Чай фруктовый</span><strong>400 ₽</strong></li>
+                  <li><span>Черный вареный кофе</span><strong>200 ₽</strong></li>
+                  <li><span>Эспрессо / Американо</span><strong>100 / 150 ₽</strong></li>
+                  <li><span>Капучино / Латте</span><strong>250 / 250 ₽</strong></li>
+                  <li><span>Раф / Гляссе / Моккачино</span><strong>300 ₽</strong></li>
+                  <li><span>Флэт уайт</span><strong>200 ₽</strong></li>
+                  <li><span>Кофе SHI</span><strong>500 ₽</strong></li>
+                  <li><span>Матча / Какао</span><strong>250 / 300 ₽</strong></li>
+                  <li><span>Эспрессо-тоник / Эспрессо-кола</span><strong>300 ₽</strong></li>
+                  <li><span>Нутелла</span><strong>300 ₽</strong></li>
+                </ul>
+              </div>
+
+              <div class="space-y-4 bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                <h4 class="text-xs uppercase tracking-wider text-moss font-semibold">Добавки к напиткам</h4>
+                <ul class="space-y-2 text-xs dots-leader text-white/70">
+                  <li><span>Шот эспрессо / Альтернативное молоко</span><strong>50 ₽</strong></li>
+                  <li><span>Сироп в ассортименте</span><strong>30 ₽</strong></li>
+                  <li><span>SHI индивидуальный рецепт</span><strong>400 ₽</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- КОМАНДА -->
+      <!-- Секция Мастера -->
+<!-- Секция «Наши Мастера» -->
+    <section id="team" class="py-20 bg-charcoal text-sand">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Заголовок секции -->
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-serif text-white mb-4">Наши Мастера</h2>
+          <p class="text-sand/70 max-w-2xl mx-auto text-sm sm:text-base">
+            Каждый мастер — свой почерк и подход. Выбирайте специалиста, который откликается именно вам.
+          </p>
+        </div>
+
+        <!-- Переключатель сфер мастеров -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10" role="tablist">
+          <button
+            type="button"
+            data-tab="nails"
+            class="tab-btn active-tab rounded-full border border-moss bg-moss px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-ink transition-all duration-300"
+          >
+            Ногтевые мастера
+          </button>
+          <button
+            type="button"
+            data-tab="hair"
+            class="tab-btn rounded-full border border-white/15 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/50 transition-all duration-300 hover:border-moss/40 hover:text-white/80"
+          >
+            Парикмахеры <span class="normal-case tracking-normal text-moss/70">· скоро</span>
+          </button>
+        </div>
+
+        <!-- Панель: Ногтевые мастера -->
+        <div id="tab-nails" class="tab-panel">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+
+          <!-- Карточка 1: Сирануш -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <!-- Блок с фото -->
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/siranush.jpg.jpg"
+                alt="Сирануш"
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Сирануш</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Подолог & Мастер маникюра</p>
+              </div>
+            </div>
+            <!-- Описание и Прайс -->
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Эксперт по сложному педикюру, коррекции и уходу за ногтевой пластиной (установка титановой нити).
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка 2: Лиза -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <!-- Блок с фото -->
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/yulia.jpg.jpeg"
+                alt="Лиза"
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Лиза</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Топ-мастер ногтевого сервиса</p>
+              </div>
+            </div>
+            <!-- Описание и Прайс -->
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Специалист по эстетическому и комплексному уходу за ногтями, авторским техникам педикюра и SPA-процедурам SHI.
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка 3: Шаббона -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <!-- Блок с фото -->
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/shabbona.jpg.JPG"
+                alt="Шаббона"
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Шаббона</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Мастер ногтевого сервиса</p>
+              </div>
+            </div>
+            <!-- Описание и Прайс -->
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Аккуратный и тщательный уход за ногтями, чистая обработка, моделирование и наращивание.
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка 4: Анастасия -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <!-- Блок с фото -->
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/anastasia.jpg.jpg"
+                alt="Анастасия"
+                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Анастасия</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Мастер нейл-дизайна</p>
+              </div>
+            </div>
+            <!-- Описание и Прайс -->
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Художественный дизайн, квалифицированная работа со стразами Swarovski, стемпингом и архитектурой.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+        <!-- Панель: Парикмахеры (скоро) -->
+        <div id="tab-hair" class="tab-panel hidden">
+          <div class="rounded-2xl border border-dashed border-white/15 bg-black/20 py-16 text-center">
+            <p class="font-display text-2xl text-white">Скоро здесь появятся наши парикмахеры</p>
+            <p class="mt-3 text-sm text-sand/60">Мы собираем команду мастеров по стрижкам и укладкам — следите за обновлениями.</p>
+          </div>
+        </div>
+
+        <!-- Финальный блок: Онлайн-запись + Коктейль -->
+        <div class="mt-16 bg-gradient-to-r from-black/80 via-moss/10 to-black/80 border border-moss/30 rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl">
+          <div class="absolute -top-12 -right-12 w-40 h-40 bg-moss/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-moss/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-moss/20 border border-moss/40 text-moss text-xs uppercase tracking-widest font-semibold">
+              <span>Премиальный сервис</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-serif text-white leading-tight">
+              Выберите удобное время и насладитесь атмосферой
+            </h3>
+
+            <p class="text-sand/80 text-sm sm:text-base font-light leading-relaxed">
+              Каждого гостя нашей студии мы угощаем авторским освежающим коктейлем — отличный бонус к идеальному маникюру и залог прекрасного настроения.
+            </p>
+
+            <div class="pt-2">
+              <a 
+                href="http://n714376.yclients.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-xl bg-moss hover:bg-moss/90 text-black font-semibold text-sm uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-moss/20 hover:shadow-moss/40 group"
+              >
+                <span>Записаться онлайн</span>
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+      <!-- КОНТАКТЫ -->
+      <section id="contacts" class="mx-auto max-w-7xl px-4 py-6 pb-20 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8">
+            <p class="text-sm uppercase tracking-[0.4em] text-moss">Контакты</p>
+            <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Мы ждём вас в центре спокойствия и стиля.</h2>
+            <div class="mt-6 space-y-3 text-base text-white/80">
+              <p><span class="font-semibold text-white">Адрес:</span> ул. Таврическая, 18, Москва</p>
+              <p><span class="font-semibold text-white">Телефон:</span> +7 (999) 123-45-67</p>
+              <p><span class="font-semibold text-white">Часы работы:</span> Пн–Вс: 10:00–21:00</p>
+            </div>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://wa.me/79991234567"
+                class="inline-flex items-center justify-center rounded-full border border-moss/60 px-5 py-3 text-sm font-semibold text-moss transition-all duration-300 hover:scale-105 hover:bg-moss hover:text-ink"
+              >
+                Написать в WhatsApp
+              </a>
+              <a
+                href="https://t.me/shi_beauty"
+                class="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:border-moss hover:text-moss"
+              >
+                Написать в Telegram
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-ink/70 p-6 sm:p-8">
+            <iframe
+              title="Карта SHI Beauty"
+              src="https://yandex.ru/maps/-/CTB97W~M"
+              loading="lazy"
+              class="h-[300px] w-full rounded-xl border border-white/10"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.querySelectorAll('.tab-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.tab-btn').forEach(function (b) {
+            b.classList.remove('active-tab', 'bg-moss', 'border-moss', 'text-ink');
+            b.classList.add('border-white/15', 'text-white/50');
+          });
+          btn.classList.add('active-tab', 'bg-moss', 'border-moss', 'text-ink');
+          btn.classList.remove('border-white/15', 'text-white/50');
+
+          document.querySelectorAll('.tab-panel').forEach(function (panel) {
+            panel.classList.add('hidden');
+          });
+          document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+        });
+      });
+    </script>
+  </body>
+</html>
