@@ -88,9 +88,42 @@
       }
       .dots-leader li span { order: 1; }
       .dots-leader li strong { order: 3; }
-      
+
       details summary::-webkit-details-marker { display: none; }
       details summary { list-style: none; }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal-stagger.is-visible > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-stagger > *:nth-child(2) { transition-delay: 0.08s; }
+      .reveal-stagger > *:nth-child(3) { transition-delay: 0.16s; }
+      .reveal-stagger > *:nth-child(4) { transition-delay: 0.24s; }
+      .reveal-stagger > *:nth-child(5) { transition-delay: 0.32s; }
+      .reveal-stagger > *:nth-child(6) { transition-delay: 0.4s; }
+      .reveal-stagger > *:nth-child(7) { transition-delay: 0.48s; }
+      .reveal-stagger > *:nth-child(8) { transition-delay: 0.56s; }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal, .reveal-stagger > * {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
     </style>
   </head>
   <body class="min-h-screen bg-ink text-mist font-sans antialiased">
@@ -223,7 +256,7 @@
 
       <!-- ABOUT SECTION -->
       <section id="about" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="reveal-stagger grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <p class="mb-4 text-sm uppercase tracking-[0.4em] text-moss">О салоне</p>
             <h2 class="font-display text-3xl text-white sm:text-4xl">
@@ -251,7 +284,7 @@
       <!-- SERVICES SECTION -->
       <section id="services" class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
         <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10">
-          <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div class="reveal mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-sm uppercase tracking-[0.4em] text-moss">Услуги и цены</p>
               <h2 class="font-display text-3xl text-white sm:text-4xl">Премиальный уход без компромиссов.</h2>
@@ -261,7 +294,7 @@
             </p>
           </div>
 
-          <div class="space-y-4">
+          <div class="reveal-stagger space-y-4">
             <!-- Лазерная эпиляция -->
             <details class="group rounded-[1.5rem] border border-white/10 bg-ink/70 overflow-hidden transition-all duration-300">
               <summary class="flex items-center justify-between p-6 cursor-pointer select-none hover:bg-white/5">
@@ -465,13 +498,13 @@
           <div class="pointer-events-none absolute -top-16 -left-16 h-56 w-56 rounded-full bg-moss/10 blur-3xl"></div>
           <div class="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-moss/10 blur-3xl"></div>
 
-          <div class="relative mb-10 text-center">
+          <div class="reveal relative mb-10 text-center">
             <p class="text-sm uppercase tracking-[0.4em] text-moss">Специально для гостей</p>
             <h2 class="font-display text-3xl text-white sm:text-4xl mt-2">Актуальные акции</h2>
             <div class="w-12 h-[1px] bg-moss/50 mx-auto mt-4"></div>
           </div>
 
-          <div class="relative grid gap-6 sm:grid-cols-2">
+          <div class="reveal-stagger relative grid gap-6 sm:grid-cols-2">
             <div class="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-ink/70 p-6 transition-all duration-300 hover:border-moss/50 sm:p-8">
               <div class="flex items-start gap-4">
                 <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-moss/30 bg-moss/15 text-moss">
@@ -516,13 +549,13 @@
       <!-- БАРНАЯ КАРТА -->
       <section id="bar" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 lg:p-10">
-          <div class="mb-10 text-center">
+          <div class="reveal mb-10 text-center">
             <p class="text-sm uppercase tracking-[0.4em] text-moss">Эксклюзивно для гостей</p>
             <h2 class="font-display text-4xl text-white mt-2">Барная карта</h2>
             <div class="w-12 h-[1px] bg-moss/50 mx-auto mt-4"></div>
           </div>
 
-          <div class="grid gap-10 md:grid-cols-2 lg:gap-16">
+          <div class="reveal-stagger grid gap-10 md:grid-cols-2 lg:gap-16">
             <!-- Холодные напитки -->
             <div class="space-y-6">
               <h3 class="font-display text-2xl text-white border-b border-white/10 pb-2 flex items-center gap-2">
@@ -585,7 +618,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Заголовок секции -->
-        <div class="text-center mb-16">
+        <div class="reveal text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-serif text-white mb-4">Наши Мастера</h2>
           <p class="text-sand/70 max-w-2xl mx-auto text-sm sm:text-base">
             Каждый мастер — свой почерк и подход. Выбирайте специалиста, который откликается именно вам.
@@ -619,7 +652,7 @@
 
         <!-- Панель: Ногтевые мастера -->
         <div id="tab-nails" class="tab-panel">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+        <div class="reveal-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
 
           <!-- Карточка 1: Сирануш -->
           <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
@@ -726,7 +759,7 @@
 
         <!-- Панель: Парикмахеры -->
         <div id="tab-hair" class="tab-panel hidden">
-        <div class="mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
+        <div class="reveal-stagger mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
 
           <!-- Карточка: Юля -->
           <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
@@ -779,7 +812,7 @@
 
         <!-- Панель: SPA и косметология -->
         <div id="tab-spa" class="tab-panel hidden">
-        <div class="mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
+        <div class="reveal-stagger mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
 
           <!-- Карточка: Кристина (массажист) -->
           <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
@@ -831,7 +864,7 @@
         </div>
 
         <!-- Финальный блок: Онлайн-запись + Коктейль -->
-        <div id="booking" class="mt-16 scroll-mt-24 bg-gradient-to-r from-black/80 via-moss/10 to-black/80 border border-moss/30 rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl">
+        <div id="booking" class="reveal mt-16 scroll-mt-24 bg-gradient-to-r from-black/80 via-moss/10 to-black/80 border border-moss/30 rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl">
           <div class="absolute -top-12 -right-12 w-40 h-40 bg-moss/20 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-moss/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -869,7 +902,7 @@
 
       <!-- КОНТАКТЫ -->
       <section id="contacts" class="mx-auto max-w-7xl px-4 py-6 pb-20 sm:px-6 lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+        <div class="reveal-stagger grid gap-6 lg:grid-cols-[1fr_0.95fr]">
           <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8">
             <p class="text-sm uppercase tracking-[0.4em] text-moss">Контакты</p>
             <h2 class="mt-3 font-display text-3xl text-white sm:text-4xl">Мы ждём вас в центре спокойствия и стиля.</h2>
@@ -912,6 +945,21 @@
     </main>
 
     <script>
+      var revealTargets = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (!('IntersectionObserver' in window)) {
+        revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+      } else {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+        revealTargets.forEach(function (el) { revealObserver.observe(el); });
+      }
+
       var mobileMenuBtn = document.getElementById('mobile-menu-btn');
       var mobileMenu = document.getElementById('mobile-menu');
       var iconOpen = document.getElementById('mobile-menu-icon-open');
