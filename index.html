@@ -2,7 +2,7 @@
 <html lang="ru" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>SHI Beauty — Премиальный салон красоты</title>
     <meta
       name="description"
@@ -38,6 +38,22 @@
       }
       body {
         overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+      }
+      a, button {
+        touch-action: manipulation;
+      }
+      section[id], main#top {
+        scroll-margin-top: 84px;
+      }
+      @media (max-width: 767px) {
+        img.hero-viewport {
+          height: 88svh;
+          min-height: 560px;
+        }
+        div.hero-viewport {
+          min-height: 88svh;
+        }
       }
       .dots-leader li {
         display: flex;
@@ -61,7 +77,7 @@
   <body class="min-h-screen bg-ink text-mist font-sans antialiased">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur-xl">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#top" class="text-xl font-semibold tracking-[0.35em] text-white">
+        <a href="#top" class="text-lg font-semibold tracking-[0.25em] text-white sm:text-xl sm:tracking-[0.35em]">
           SHI Beauty
         </a>
         <nav class="hidden items-center gap-6 text-sm uppercase tracking-[0.25em] text-white/70 md:flex">
@@ -72,12 +88,41 @@
           <a href="#team" class="transition hover:text-moss">Команда</a>
           <a href="#contacts" class="transition hover:text-moss">Контакты</a>
         </nav>
-        <a
-          href="#contacts"
-          class="rounded-full border border-moss/60 px-4 py-2 text-sm font-medium text-moss transition-all duration-300 hover:scale-105 hover:bg-moss hover:text-ink"
-        >
-          Онлайн-запись
-        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a
+            href="#contacts"
+            class="rounded-full border border-moss/60 px-3 py-2 text-xs font-medium text-moss transition-all duration-300 hover:scale-105 hover:bg-moss hover:text-ink sm:px-4 sm:text-sm"
+          >
+            Онлайн-запись
+          </a>
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition hover:border-moss hover:text-moss md:hidden"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg id="mobile-menu-icon-open" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg id="mobile-menu-icon-close" class="hidden h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Мобильное меню -->
+      <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink/95 md:hidden">
+        <nav class="flex flex-col gap-1 px-4 py-4 text-sm uppercase tracking-[0.2em] text-white/80">
+          <a href="#about" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">О салоне</a>
+          <a href="#services" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">Услуги</a>
+          <a href="#promo" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">Акции</a>
+          <a href="#bar" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">Барная карта</a>
+          <a href="#team" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">Команда</a>
+          <a href="#contacts" class="mobile-nav-link rounded-lg px-3 py-3 transition hover:bg-white/5 hover:text-moss">Контакты</a>
+        </nav>
       </div>
     </header>
 
@@ -87,13 +132,14 @@
         <div class="absolute inset-0">
           <img
             src="img/1.jpg"
-            alt="Премиальный интерьер салона в тёплых золотистых тонах"
-            class="h-[78vh] min-h-[620px] w-full object-cover"
+            alt=""
+            class="hero-viewport h-[78vh] min-h-[620px] w-full object-cover"
+            fetchpriority="high"
           />
           <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/30"></div>
         </div>
 
-        <div class="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-4 py-20 sm:px-6 lg:px-8">
+        <div class="hero-viewport relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div class="max-w-3xl">
             <p class="mb-4 text-sm uppercase tracking-[0.45em] text-moss">Премиальный сервис</p>
             <h1 class="font-display text-4xl leading-none text-white sm:text-5xl lg:text-7xl">
@@ -140,6 +186,8 @@
               src="img/2.jpg"
               alt="Интерьер премиального салона"
               class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -166,6 +214,7 @@
                 <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
               </summary>
               <div class="p-6 border-t border-white/10 overflow-x-auto">
+                <p class="mb-2 text-xs text-white/40 sm:hidden">Листайте таблицу влево-вправо →</p>
                 <table class="w-full text-left min-w-[500px]">
                   <thead>
                     <tr class="border-b border-white/20 text-white/60 text-sm">
@@ -196,6 +245,7 @@
                 <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
               </summary>
               <div class="p-6 border-t border-white/10 overflow-x-auto">
+                <p class="mb-2 text-xs text-white/40 sm:hidden">Листайте таблицу влево-вправо →</p>
                 <table class="w-full text-left min-w-[500px]">
                   <thead>
                     <tr class="border-b border-white/20 text-white/60 text-sm">
@@ -242,11 +292,11 @@
                   </ul>
                 </div>
                 <div>
-                  <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Massage Эндосперма sculpting & Terapy pulse</h4>
+                  <h4 class="text-moss font-semibold uppercase tracking-wider text-xs mb-3">Massage Эндосфера sculpting & Terapy pulse</h4>
                   <ul class="space-y-2 text-sm dots-leader">
                     <li><span>Консультация со специалистом</span><strong>0 ₽</strong></li>
-                    <li><span>Эндосперма sculpting by Beautylizer</span><strong>5 700 ₽</strong></li>
-                    <li><span>Эндосперма sculpting by Beautylizer ПА</span><strong>5 000 ₽</strong></li>
+                    <li><span>Эндосфера sculpting by Beautylizer</span><strong>5 700 ₽</strong></li>
+                    <li><span>Эндосфера sculpting by Beautylizer ПА</span><strong>5 000 ₽</strong></li>
                     <li><span>Terapy pulse-лицо (вакуумный массаж)</span><strong>2 300 ₽</strong></li>
                     <li><span>Terapy pulse-лицо ПА</span><strong>1 800 ₽</strong></li>
                     <li><span>Terapy pulse-комплекс все тело</span><strong>2 800 ₽</strong></li>
@@ -292,6 +342,7 @@
                 <span class="text-moss transition-transform duration-300 group-open:rotate-180">▼</span>
               </summary>
               <div class="p-6 border-t border-white/10 overflow-x-auto space-y-6">
+                <p class="text-xs text-white/40 sm:hidden">Листайте таблицу влево-вправо →</p>
                 <table class="w-full text-left min-w-[600px]">
                   <thead>
                     <tr class="border-b border-white/20 text-white/60 text-sm">
@@ -516,6 +567,8 @@
                 src="img/siranush.jpg.jpg"
                 alt="Сирануш"
                 class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -539,6 +592,8 @@
                 src="img/yulia.jpg.jpeg"
                 alt="Лиза"
                 class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -562,6 +617,8 @@
                 src="img/shabbona.jpg.JPG"
                 alt="Шаббона"
                 class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -585,6 +642,8 @@
                 src="img/anastasia.jpg.jpg"
                 alt="Анастасия"
                 class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 left-4 right-4">
@@ -688,6 +747,34 @@
     </main>
 
     <script>
+      var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('mobile-menu-icon-open');
+      var iconClose = document.getElementById('mobile-menu-icon-close');
+
+      function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      mobileMenuBtn.addEventListener('click', function () {
+        var isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          closeMobileMenu();
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
       document.querySelectorAll('.tab-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('.tab-btn').forEach(function (b) {
