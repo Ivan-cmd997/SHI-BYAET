@@ -606,7 +606,14 @@
             data-tab="hair"
             class="tab-btn rounded-full border border-white/15 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/50 transition-all duration-300 hover:border-moss/40 hover:text-white/80"
           >
-            Парикмахеры <span class="normal-case tracking-normal text-moss/70">· скоро</span>
+            Парикмахеры
+          </button>
+          <button
+            type="button"
+            data-tab="spa"
+            class="tab-btn rounded-full border border-white/15 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white/50 transition-all duration-300 hover:border-moss/40 hover:text-white/80"
+          >
+            SPA и косметология
           </button>
         </div>
 
@@ -717,12 +724,110 @@
         </div>
         </div>
 
-        <!-- Панель: Парикмахеры (скоро) -->
+        <!-- Панель: Парикмахеры -->
         <div id="tab-hair" class="tab-panel hidden">
-          <div class="rounded-2xl border border-dashed border-white/15 bg-black/20 py-16 text-center">
-            <p class="font-display text-2xl text-white">Скоро здесь появятся наши парикмахеры</p>
-            <p class="mt-3 text-sm text-sand/60">Мы собираем команду мастеров по стрижкам и укладкам — следите за обновлениями.</p>
+        <div class="mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
+
+          <!-- Карточка: Юля -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/yulia-hair.webp"
+                alt="Юля"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Юля</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Парикмахер-универсал</p>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Более десяти лет создаёт стрижки и укладки любой сложности — от чёткой геометрии до воздушных образов. Чувствует форму лица и структуру волос, поэтому результат выглядит так, будто вы всегда так и выглядели.
+              </p>
+            </div>
           </div>
+
+          <!-- Карточка: Кристина (колорист) -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/kristina-color.jpg"
+                alt="Кристина"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Кристина</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Колорист</p>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Профессиональный колорист с точным чувством цвета: сложное окрашивание, растяжка тона и деликатная коррекция без единого «пятна». Оттенок подбирает индивидуально — под тон кожи и характер клиентки.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+        <!-- Панель: SPA и косметология -->
+        <div id="tab-spa" class="tab-panel hidden">
+        <div class="mx-auto grid max-w-3xl grid-cols-1 items-start gap-6 sm:grid-cols-2">
+
+          <!-- Карточка: Кристина (массажист) -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/kristina-massage.jpg"
+                alt="Кристина"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Кристина</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Массажист</p>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Работает на стыке расслабления и терапии: снимает мышечные зажимы, возвращает лёгкость телу и тишину в голове. К ней возвращаются не только за массажем, но и за тем самым чувством полной перезагрузки.
+              </p>
+            </div>
+          </div>
+
+          <!-- Карточка: Сусанна -->
+          <div class="bg-black/40 border border-white/10 rounded-2xl overflow-hidden hover:border-moss/50 transition-all duration-300 flex flex-col h-full">
+            <div class="group relative w-full h-72 bg-neutral-900 overflow-hidden">
+              <img
+                src="img/susanna-hardware.jpg"
+                alt="Сусанна"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-xl font-serif text-white font-bold leading-tight">Сусанна</h3>
+                <p class="text-xs text-moss font-semibold uppercase tracking-wider mt-1">Мастер аппаратной косметологии</p>
+              </div>
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <p class="text-xs text-sand/70 font-light leading-relaxed">
+                Специалист по аппаратным методикам ухода за лицом и телом — от лазерного омоложения до RF-терапии. Много лет следит за новыми технологиями и точно знает, какая процедура даст результат именно вашей коже.
+              </p>
+            </div>
+          </div>
+
+        </div>
         </div>
 
         <!-- Финальный блок: Онлайн-запись + Коктейль -->
