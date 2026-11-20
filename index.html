@@ -71,6 +71,75 @@
       section[id], main#top {
         scroll-margin-top: 84px;
       }
+      .video-reel-strip {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin: -1rem -1rem 0;
+        padding: 1rem;
+        cursor: grab;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-color: #73964e #151812;
+      }
+      .video-reel-strip.dragging { cursor: grabbing; }
+      .video-reel-strip article {
+        display: inline-block;
+        vertical-align: top;
+        width: 27%;
+        max-width: 330px;
+        margin-right: 1rem;
+        white-space: normal;
+      }
+      .video-reel-strip article:last-child { margin-right: 0; }
+      .reel-open {
+        position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+        width: 100%; height: 100%; cursor: inherit; color: white;
+        background: linear-gradient(transparent 72%, rgba(0,0,0,.48));
+        text-align: left;
+      }
+      .reel-open span {
+        position: absolute; left: 1rem; bottom: 1rem; border-radius: 50%;
+        background: rgba(0,0,0,.65); padding: .6rem .85rem;
+      }
+      .reel-viewer {
+        position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+        z-index: 1000; background: #050505; color: white;
+        display: flex; flex-direction: column; overscroll-behavior: contain;
+      }
+      .reel-viewer[hidden] { display: none; }
+      .reel-viewer header, .reel-viewer footer {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: .75rem; padding: .5rem 1rem;
+      }
+      .reel-viewer header { padding-top: max(.5rem, env(safe-area-inset-top)); }
+      .reel-viewer footer { padding-bottom: max(.5rem, env(safe-area-inset-bottom)); }
+      .reel-stage { position: relative; flex: 1; min-height: 0; touch-action: none; }
+      .reel-stage video { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+      .reel-viewer button { min-height: 44px; min-width: 44px; color: #b5df85; }
+      .reel-viewer button:disabled { opacity: .32; }
+      .video-reel-frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.75rem;
+        border: 1px solid #566f39;
+        background: #11130f;
+        box-shadow: 0 0 12px rgba(143,191,92,.24), 0 5px 32px rgba(143,191,92,.19);
+      }
+      .video-reel-frame:before {
+        content: "";
+        display: block;
+        padding-top: 150%;
+      }
+      .video-reel-frame video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @media (max-width: 640px) {
+        .video-reel-strip article { width: 72%; max-width: 260px; }
+      }
       @media (max-width: 767px) {
         img.hero-viewport {
           height: 88svh;
@@ -306,6 +375,61 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- VIDEO SECTION -->
+      <section id="video" aria-labelledby="video-title" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style="padding-top: 2rem">
+        <h2 id="video-title" class="mb-4 font-display text-2xl text-white">Видео SHI Beauty</h2>
+        <div class="video-reel-strip" tabindex="0" role="region" aria-labelledby="video-title">
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-01.jpg" aria-label="Моменты SHI">
+                <source src="img/shi-reel-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Моменты SHI</h3>
+          </article>
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-02.jpg" aria-label="Атмосфера салона">
+                <source src="img/shi-reel-02.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Атмосфера салона</h3>
+          </article>
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-03.jpg" aria-label="Красота в движении">
+                <source src="img/shi-reel-03.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Красота в движении</h3>
+          </article>
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-04.jpg" aria-label="Маникюр крупным планом">
+                <source src="img/shi-reel-04.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Маникюр крупным планом</h3>
+          </article>
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-05.jpg" aria-label="Дизайн ногтей">
+                <source src="img/shi-reel-05.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Дизайн ногтей</h3>
+          </article>
+          <article>
+            <div class="video-reel-frame">
+              <video controls playsinline preload="none" poster="img/shi-reel-06.jpg" aria-label="Награды салона">
+                <source src="img/shi-reel-06.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <h3 class="mt-3 text-base font-semibold">Награды салона</h3>
+          </article>
         </div>
       </section>
 
@@ -1294,7 +1418,143 @@
         </div>
       </section>
     </main>
+    <div class="reel-viewer" hidden role="dialog" aria-modal="true" aria-labelledby="reel-name">
+      <header><strong id="reel-name" aria-live="polite"></strong><button type="button" id="reel-close">Закрыть ×</button></header>
+      <div class="reel-stage"><video controls playsinline webkit-playsinline></video></div>
+      <footer>
+        <button type="button" id="reel-prev" aria-label="Предыдущее видео">↑</button>
+        <span id="reel-count"></span>
+        <button type="button" id="reel-next" aria-label="Следующее видео">↓</button>
+      </footer>
+    </div>
 
+    <script>
+      (function () {
+        var strip = document.querySelector('.video-reel-strip');
+        var startX, startScroll, tracking = false, dragged = false;
+
+        strip.addEventListener('mousedown', function (event) {
+          dragged = false;
+          if (event.button !== 0) return;
+          var target = event.target;
+          // Keep the native video controls and scrollbar available for direct interaction.
+          if (target.tagName === 'VIDEO' && event.clientY >= target.getBoundingClientRect().bottom - 60) return;
+          if (event.clientY >= strip.getBoundingClientRect().top + strip.clientHeight) return;
+          tracking = true;
+          startX = event.clientX;
+          startScroll = strip.scrollLeft;
+        }, true);
+
+        window.addEventListener('mousemove', function (event) {
+          if (!tracking) return;
+          var distance = event.clientX - startX;
+          if (!dragged && Math.abs(distance) < 6) return;
+          dragged = true;
+          strip.className = 'video-reel-strip dragging';
+          event.preventDefault();
+          strip.scrollLeft = startScroll - distance;
+        });
+
+        function release() {
+          tracking = false;
+          strip.className = 'video-reel-strip';
+          window.setTimeout(function () { dragged = false; }, 0);
+        }
+        window.addEventListener('mouseup', release, true);
+        window.addEventListener('blur', release);
+        strip.addEventListener('dragstart', function (event) { event.preventDefault(); });
+        strip.addEventListener('click', function (event) {
+          if (dragged) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }, true);
+
+        var viewer = document.querySelector('.reel-viewer');
+        var stage = viewer.querySelector('.reel-stage');
+        var player = stage.querySelector('video');
+        var cards = strip.querySelectorAll('article');
+        var close = document.getElementById('reel-close');
+        var prev = document.getElementById('reel-prev');
+        var next = document.getElementById('reel-next');
+        var active, opener, oldOverflow, touch;
+
+        function show(index) {
+          if (index < 0 || index >= cards.length) return;
+          active = index;
+          var preview = cards[index].querySelector('video');
+          player.poster = preview.poster;
+          player.src = preview.querySelector('source').src;
+          document.getElementById('reel-name').textContent = preview.getAttribute('aria-label');
+          document.getElementById('reel-count').textContent = (index + 1) + ' / ' + cards.length;
+          prev.disabled = index === 0;
+          next.disabled = index === cards.length - 1;
+          var playback = player.play();
+          if (playback && playback.catch) playback.catch(function () { /* Native controls allow manual play. */ });
+        }
+        function dismiss() {
+          player.pause();
+          player.removeAttribute('src');
+          player.load();
+          touch = null;
+          viewer.hidden = true;
+          document.body.style.overflow = oldOverflow;
+          opener.focus();
+        }
+        Array.prototype.forEach.call(cards, function (card, index) {
+          var preview = card.querySelector('video');
+          var button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'reel-open';
+          button.setAttribute('aria-label', 'Смотреть: ' + preview.getAttribute('aria-label'));
+          button.innerHTML = '<span aria-hidden="true">▶</span>';
+          preview.controls = false;
+          preview.parentNode.appendChild(button);
+          button.onclick = function () {
+            opener = button;
+            oldOverflow = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+            viewer.hidden = false;
+            close.focus();
+            show(index);
+          };
+        });
+        close.onclick = dismiss;
+        prev.onclick = function () { show(active - 1); };
+        next.onclick = function () { show(active + 1); };
+        stage.addEventListener('touchstart', function (event) {
+          var point = event.touches[0];
+          touch = event.touches.length === 1 && point.clientY < stage.getBoundingClientRect().bottom - 55
+            ? { x: point.clientX, y: point.clientY } : null;
+        });
+        stage.addEventListener('touchcancel', function () { touch = null; });
+        stage.addEventListener('touchend', function (event) {
+          if (!touch) return;
+          var point = event.changedTouches[0];
+          var dy = point.clientY - touch.y;
+          if (Math.abs(dy) > 45 && Math.abs(dy) > Math.abs(point.clientX - touch.x)) {
+            event.preventDefault();
+            show(active + (dy < 0 ? 1 : -1));
+          }
+          touch = null;
+        });
+        document.addEventListener('keydown', function (event) {
+          if (viewer.hidden) return;
+          if (event.keyCode === 27) dismiss();
+          else if (event.keyCode === 38 || event.keyCode === 40) {
+            event.preventDefault();
+            show(active + (event.keyCode === 40 ? 1 : -1));
+          } else if (event.keyCode === 9) {
+            var last = next.disabled ? prev : next;
+            if (event.shiftKey && document.activeElement === close) {
+              event.preventDefault(); last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault(); close.focus();
+            }
+          }
+        });
+      }());
+    </script>
     <script>
       var revealTargets = document.querySelectorAll('.reveal, .reveal-stagger');
       if (!('IntersectionObserver' in window)) {
@@ -1354,6 +1614,7 @@
           document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
         });
       });
+
     </script>
   </body>
 </html>
