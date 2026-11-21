@@ -112,8 +112,13 @@
       }
       .reel-viewer header { padding-top: max(.5rem, env(safe-area-inset-top)); }
       .reel-viewer footer { padding-bottom: max(.5rem, env(safe-area-inset-bottom)); }
-      .reel-stage { position: relative; flex: 1; min-height: 0; touch-action: none; }
-      .reel-stage video { position: absolute; width: 100%; height: 100%; object-fit: contain; }
+      .reel-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; }
+      .reel-track { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+      .reel-track.settling { transition: transform 380ms cubic-bezier(.22,.68,.15,1); }
+      .reel-track video { display: block; width: 100%; height: 100%; object-fit: contain; }
+      @media (prefers-reduced-motion: reduce) {
+        .reel-track.settling { transition-duration: 0s; }
+      }
       .reel-viewer button { min-height: 44px; min-width: 44px; color: #b5df85; }
       .reel-viewer button:disabled { opacity: .32; }
       .video-reel-frame {
@@ -1420,7 +1425,7 @@
     </main>
     <div class="reel-viewer" hidden role="dialog" aria-modal="true" aria-labelledby="reel-name">
       <header><strong id="reel-name" aria-live="polite"></strong><button type="button" id="reel-close">Закрыть ×</button></header>
-      <div class="reel-stage"><video controls playsinline webkit-playsinline></video></div>
+      <div class="reel-stage"><div class="reel-track"></div></div>
       <footer>
         <button type="button" id="reel-prev" aria-label="Предыдущее видео">↑</button>
         <span id="reel-count"></span>
@@ -1472,19 +1477,35 @@
 
         var viewer = document.querySelector('.reel-viewer');
         var stage = viewer.querySelector('.reel-stage');
-        var player = stage.querySelector('video');
+        var track = stage.querySelector('.reel-track');
         var cards = strip.querySelectorAll('article');
         var close = document.getElementById('reel-close');
         var prev = document.getElementById('reel-prev');
         var next = document.getElementById('reel-next');
         var active, opener, oldOverflow, touch;
 
+        function positionTrack(index, animate) {
+          track.className = animate ? 'reel-track settling' : 'reel-track';
+          track.style.transform = 'translate3d(0,' + (-100 * index) + '%,0)';
+        }
         function show(index) {
           if (index < 0 || index >= cards.length) return;
+          touch = null;
+          positionTrack(index, active != null);
+          if (active === index) return;
+          if (active != null) {
+            var previous = track.children[active];
+            previous.pause();
+            previous.controls = false;
+            previous.setAttribute('aria-hidden', 'true');
+          }
           active = index;
           var preview = cards[index].querySelector('video');
-          player.poster = preview.poster;
-          player.src = preview.querySelector('source').src;
+          var player = track.children[index];
+          player.controls = true;
+          player.removeAttribute('aria-hidden');
+          if (!player.hasAttribute('src')) player.src = preview.querySelector('source').src;
+          else player.currentTime = 0;
           document.getElementById('reel-name').textContent = preview.getAttribute('aria-label');
           document.getElementById('reel-count').textContent = (index + 1) + ' / ' + cards.length;
           prev.disabled = index === 0;
@@ -1493,9 +1514,15 @@
           if (playback && playback.catch) playback.catch(function () { /* Native controls allow manual play. */ });
         }
         function dismiss() {
-          player.pause();
-          player.removeAttribute('src');
-          player.load();
+          Array.prototype.forEach.call(track.children, function (player) {
+            if (!player.hasAttribute('src')) return;
+            player.pause();
+            player.controls = false;
+            player.setAttribute('aria-hidden', 'true');
+            player.removeAttribute('src');
+            player.load();
+          });
+          active = null;
           touch = null;
           viewer.hidden = true;
           document.body.style.overflow = oldOverflow;
@@ -1503,6 +1530,13 @@
         }
         Array.prototype.forEach.call(cards, function (card, index) {
           var preview = card.querySelector('video');
+          var slide = document.createElement('video');
+          slide.setAttribute('playsinline', '');
+          slide.setAttribute('webkit-playsinline', '');
+          slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('aria-label', preview.getAttribute('aria-label'));
+          slide.poster = preview.poster;
+          track.appendChild(slide);
           var button = document.createElement('button');
           button.type = 'button';
           button.className = 'reel-open';
@@ -1525,16 +1559,35 @@
         stage.addEventListener('touchstart', function (event) {
           var point = event.touches[0];
           touch = event.touches.length === 1 && point.clientY < stage.getBoundingClientRect().bottom - 55
-            ? { x: point.clientX, y: point.clientY } : null;
+            ? { x: point.clientX, y: point.clientY, start: Date.now(),
+                offset: track.getBoundingClientRect().top - stage.getBoundingClientRect().top } : null;
         });
-        stage.addEventListener('touchcancel', function () { touch = null; });
+        stage.addEventListener('touchmove', function (event) {
+          if (!touch || event.touches.length !== 1) return;
+          var point = event.touches[0];
+          var dy = point.clientY - touch.y;
+          if (!touch.dragging && (Math.abs(dy) < 6 || Math.abs(dy) < Math.abs(point.clientX - touch.x))) return;
+          touch.dragging = true;
+          event.preventDefault();
+          var height = stage.clientHeight;
+          var offset = Math.max(-(cards.length - 1) * height, Math.min(0, touch.offset + dy));
+          track.className = 'reel-track';
+          track.style.transform = 'translate3d(0,' + offset + 'px,0)';
+        }, false);
+        stage.addEventListener('touchcancel', function () {
+          if (touch) positionTrack(active, true);
+          touch = null;
+        });
         stage.addEventListener('touchend', function (event) {
           if (!touch) return;
           var point = event.changedTouches[0];
           var dy = point.clientY - touch.y;
-          if (Math.abs(dy) > 45 && Math.abs(dy) > Math.abs(point.clientX - touch.x)) {
+          if (touch.dragging) {
             event.preventDefault();
-            show(active + (dy < 0 ? 1 : -1));
+            var distance = Math.abs(dy);
+            var flick = distance > 40 && distance / Math.max(1, Date.now() - touch.start) > 0.36;
+            var step = distance > stage.clientHeight * 0.18 || flick ? (dy < 0 ? 1 : -1) : 0;
+            show(Math.max(0, Math.min(cards.length - 1, active + step)));
           }
           touch = null;
         });
